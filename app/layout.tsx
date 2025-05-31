@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
       "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
     images: [
       {
-        url: "https://atomic-tech.ru/assets/images/metadata/atomic-code-image.png",
+        url: "https://atomic-tech.ru/assets/images/metadata/root-atomic-code-image.png",
         width: 1200,
         height: 630,
         alt: "Atomic Code - Разработка программного обеспечения",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://atomic-tech.ru/assets/images/metadata/atomic-code-image.png",
+        url: "https://atomic-tech.ru/assets/images/metadata/root-atomic-code-image.png",
         width: 1200,
         height: 630,
         alt: "Atomic Code - Разработка программного обеспечения",
