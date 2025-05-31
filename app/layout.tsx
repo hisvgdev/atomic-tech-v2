@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
-  metadataBase: new URL("https://atomic-tech-v2.vercel.app/"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
   keywords: [
     "Atomic Code",
     "разработка программного обеспечения",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Atomic Code - Разработка программного обеспечения",
     description:
       "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
-    url: "https://atomic-tech.ru",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
     type: "website",
     images: [
       {
