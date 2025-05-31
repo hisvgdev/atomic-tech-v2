@@ -10,22 +10,23 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Atomic Code - Разработка программного обеспечения",
-    template: "Atomic Code - %s",
+    default: "Atomic Code | Разработка программного обеспечения",
+    template: "%s | Atomic Code",
   },
   description:
     "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
+  metadataBase: new URL("https://atomic-tech-v2.vercel.app/"),
   keywords: [
     "Atomic Code",
     "разработка программного обеспечения",
-    " технологии",
+    "технологии",
     "инновации",
     "софт",
+    "сайты",
     "web-разработка",
-    "мобильные приложения",
     "blockchain-разработка",
+    "мобильные приложения",
   ],
-  viewport: "width=device-width, initial-scale=1",
   creator: "Atomic Code",
   category: "Технологии и Разработка",
   twitter: {
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
       "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
     images: [
       {
-        url: "https://atomic-tech.ru/assets/images/metadata/root-atomic-code-image.png",
+        url: "/assets/images/metadata/root-atomic-code-image.png",
         width: 1200,
         height: 630,
         alt: "Atomic Code - Разработка программного обеспечения",
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://atomic-tech.ru/assets/images/metadata/root-atomic-code-image.png",
+        url: "/assets/images/metadata/root-atomic-code-image.png",
         width: 1200,
         height: 630,
         alt: "Atomic Code - Разработка программного обеспечения",
