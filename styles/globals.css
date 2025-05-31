@@ -5,19 +5,22 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Font */
   --font-manrope: var(--font-monrope);
-}
 
-@layer base {
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: var(--font-manrope), sans-serif;
-  }
+  /* Tokens */
+
+  /* #000809 */
+  --color-primary-600: oklch(0.1223 0.0208 201.68);
+  /* #0F0F0F */
+  --color-primary-500: oklch(0.1684 0 0);
+  /* #0B0B0B */
+  --color-primary-400: oklch(0.1496 0 0);
+  /* #2E2E2E */
+  --color-primary-300: oklch(0.3012 0 0);
+  /* #C4C4C4 */
+  --color-primary-200: oklch(0.8203 0 0);
+  /* #E6E6E6 */
+  --color-primary-100: oklch(0.9249 0 0);
 }
 
 @theme inline {
@@ -129,9 +132,9 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 p-0 m-0 box-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-manrope;
   }
 }
