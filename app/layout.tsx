@@ -10,7 +10,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Atomic Code | Разработка программного обеспечения",
+    default: "Atomic Code - Разработка программного обеспечения",
     template: "%s | Atomic Code",
   },
   description:
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Atomic Code - Разработка программного обеспечения",
     description:
-      "Создание инновационных решений и разработка программного обеспечения командой Atomic Code.",
+      "Создание инновационных решений, сервисов, и разработка программного обеспечения командой Atomic Code.",
     images: [
       {
         url: "/assets/images/metadata/root-atomic-code-image.png",
