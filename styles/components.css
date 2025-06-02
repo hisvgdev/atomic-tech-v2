@@ -10,7 +10,7 @@
 
   &::-webkit-scrollbar-thumb {
     border-radius: 9999px;
-    /*background-color: hsl(226 12% 28% / 0.04);*/
+    /* background-color: hsl(226 12% 28% / 0.04); */
     background-color: unset;
     background-clip: padding-box;
     border: 0.32rem solid transparent;
