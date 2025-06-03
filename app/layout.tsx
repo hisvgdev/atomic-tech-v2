@@ -12,6 +12,8 @@ const manrope = Manrope({
     display: 'swap',
 })
 
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL
+
 export const metadata: Metadata = {
     title: {
         default: 'Atomic Code - Разработка программного обеспечения',
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
     },
     description:
         'Создание инновационных решений и разработка программного обеспечения командой Atomic Code.',
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ''),
+    metadataBase: baseURL ? new URL(baseURL) : undefined,
     keywords: [
         'Atomic Code',
         'разработка программного обеспечения',
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
         title: 'Atomic Code - Разработка программного обеспечения',
         description:
             'Создание инновационных решений и разработка программного обеспечения командой Atomic Code.',
-        url: new URL(process.env.NEXT_PUBLIC_BASE_URL || ''),
+        url: baseURL ? new URL(baseURL) : undefined,
         type: 'website',
         images: [
             {
