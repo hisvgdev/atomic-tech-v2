@@ -1,70 +1,181 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import logo from "@/public/assets/images/logo.svg";
+import { Button } from '@/components/ui/button'
+import logo from '@/public/assets/images/logo.svg'
+import { XIcon } from '@phosphor-icons/react'
+import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { cn } from '@/lib/utils'
+
+import { NAV_MENU_LINKS } from './NavigationMenu.constant'
+
+const MotionButton = motion(Button)
 
 export const NavigationMenu = () => {
-  const [isOnDark, setIsOnDark] = useState(false);
-  const triggerRef = useRef<HTMLDivElement | null>(null);
+    const [isOnDark, setIsOnDark] = useState(false)
+    const [menuClick, setMenuClick] = useState(false)
+    const [showMenuContent, setShowMenuContent] = useState(false)
+    const pathname = usePathname()
+    const triggerRef = useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsOnDark(!entry.isIntersecting);
-      },
-      {
-        root: null,
-        rootMargin: "10px 0px 0px 0px",
-        threshold: [0.5],
-      }
-    );
+    const handleMenuClick = () => {
+        if (menuClick) {
+            setMenuClick(false)
+        } else {
+            setMenuClick(true)
+            setTimeout(() => setShowMenuContent(true), 300)
+        }
+    }
 
-    const trigger = triggerRef.current;
-    if (trigger) observer.observe(trigger);
+    useEffect(() => {
+        const sections = document.querySelectorAll('section[data-dark]')
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleSections = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
-    return () => {
-      if (trigger) observer.unobserve(trigger);
-    };
-  }, []);
+                if (visibleSections.length > 0) {
+                    const topSection = visibleSections[0]
+                    const isDark = topSection.target.getAttribute('data-dark') === 'true'
+                    setIsOnDark(isDark)
+                }
+            },
+            {
+                threshold: 0.8,
+            },
+        )
 
-  return (
-    <>
-      <div ref={triggerRef} className="h-px w-full" />
+        sections.forEach((section) => observer.observe(section))
+        return () => sections.forEach((section) => observer.unobserve(section))
+    }, [])
 
-      <div className="w-full sticky top-0 z-20 flex justify-center items-center py-5">
-        <div
-          className={`min-w-96 rounded-full backdrop-blur-lg p-3.5 ${
-            isOnDark ? "bg-white/10" : "bg-[#0B0B0B0D]"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <Image
-              src={logo}
-              alt="logo"
-              className={`transition-all duration-500 w-32 h-auto ${
-                isOnDark ? "brightness-200" : "brightness-0"
-              }`}
-            />
-            <Button
-              className="p-5 rounded-full cursor-pointer max-w-40 w-full"
-              style={{
-                background:
-                  "linear-gradient(104.62deg, #00636F 0%, #000809 47.79%)",
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <span className="font-bold text-xl">Меню</span>
-                <div className="flex flex-col gap-1 justify-center h-full">
-                  <div className="w-7 h-0.5 bg-white/50" />
-                  <div className="w-7 h-0.5 bg-white/50" />
-                </div>
-              </div>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+    return (
+        <>
+            <div ref={triggerRef} className="h-8 w-full absolute top-0" />
+
+            <div className="w-full sticky top-0 z-20 flex justify-center items-center py-5">
+                <motion.div
+                    className={cn(
+                        'min-w-96 rounded-full backdrop-blur-lg p-3.5',
+                        isOnDark ? 'bg-white/10' : 'bg-[#0B0B0B0D]',
+                    )}
+                    animate={{
+                        width: menuClick ? '90%' : '24rem',
+                    }}
+                    initial={{
+                        width: '24rem',
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                    }}
+                >
+                    <div className="flex items-center justify-between">
+                        <Image
+                            src={logo}
+                            alt="logo"
+                            className={cn(
+                                'transition-all duration-500 w-32 h-auto',
+                                isOnDark ? 'brightness-200' : 'brightness-0',
+                            )}
+                        />
+
+                        <AnimatePresence>
+                            {menuClick && showMenuContent && (
+                                <motion.nav
+                                    key="menu-content"
+                                    className="max-w-3xl overflow-hidden"
+                                    initial={{ opacity: 0, scale: 0.95, width: 0 }}
+                                    animate={{ opacity: 1, scale: 1, width: '100%' }}
+                                    exit={{ opacity: 0, scale: 0.9, width: 0 }}
+                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                    onAnimationComplete={(definition) => {
+                                        if (definition === 'exit') {
+                                            setShowMenuContent(false)
+                                        }
+                                    }}
+                                >
+                                    <ul className="flex justify-between">
+                                        {NAV_MENU_LINKS.map((link, idx) => {
+                                            const activeLink = link.href === pathname
+                                            return (
+                                                <li key={`${idx}-${link.id}`} className="px-4 py-2">
+                                                    <Link
+                                                        href={link.href}
+                                                        className={cn(
+                                                            'font-bold px-4 py-2 rounded-full',
+                                                            {
+                                                                'bg-white text-black':
+                                                                    activeLink && isOnDark,
+                                                                'bg-black text-white':
+                                                                    activeLink && !isOnDark,
+                                                                'text-white':
+                                                                    !activeLink && isOnDark,
+                                                                'text-black':
+                                                                    !activeLink && !isOnDark,
+                                                            },
+                                                        )}
+                                                    >
+                                                        {link.title}
+                                                    </Link>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
+                                </motion.nav>
+                            )}
+                        </AnimatePresence>
+
+                        <MotionButton
+                            className="rounded-full cursor-pointer flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#00636F] to-[#000809]"
+                            animate={{
+                                width: menuClick ? '3.5rem' : '10rem',
+                                padding: menuClick ? '1.25rem' : '0.75rem 1.25rem',
+                            }}
+                            style={{
+                                height: '3.5rem',
+                            }}
+                            transition={{
+                                width: { duration: 0.15, ease: 'easeInOut' },
+                                padding: { duration: 0.2, ease: 'easeInOut' },
+                            }}
+                            onClick={handleMenuClick}
+                        >
+                            {menuClick ? (
+                                <motion.div
+                                    key="close"
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.5 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <XIcon size={80} color="#C4C4C4" weight="bold" />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="menu"
+                                    className="flex items-center gap-3 text-white"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <span className="font-bold text-xl">Меню</span>
+                                    <div className="flex flex-col gap-1 justify-center h-full">
+                                        <div className="w-7 h-0.5 bg-white/50" />
+                                        <div className="w-7 h-0.5 bg-white/50" />
+                                    </div>
+                                </motion.div>
+                            )}
+                        </MotionButton>
+                    </div>
+                </motion.div>
+            </div>
+        </>
+    )
+}
