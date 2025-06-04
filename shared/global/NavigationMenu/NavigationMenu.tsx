@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import logo from '@/public/assets/images/logo.svg'
+import { MotionButton } from '@/shared/custom/MotionButton'
 import { XIcon } from '@phosphor-icons/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -13,12 +13,11 @@ import { cn } from '@/lib/utils'
 
 import { NAV_MENU_LINKS } from './NavigationMenu.constant'
 
-const MotionButton = motion(Button)
-
 export const NavigationMenu = () => {
     const [isOnDark, setIsOnDark] = useState(false)
     const [menuClick, setMenuClick] = useState(false)
     const [showMenuContent, setShowMenuContent] = useState(false)
+    const [isHover, setIsHover] = useState(false)
     const pathname = usePathname()
     const triggerRef = useRef<HTMLDivElement | null>(null)
 
@@ -170,17 +169,19 @@ export const NavigationMenu = () => {
                                 width: { duration: 0.15, ease: 'easeInOut' },
                                 padding: { duration: 0.2, ease: 'easeInOut' },
                             }}
+                            onMouseEnter={() => setIsHover(true)}
+                            onMouseLeave={() => setIsHover(false)}
                             onClick={handleMenuClick}
                             initial="initial"
-                            whileHover="hover"
                         >
                             {/* Градиент */}
                             <motion.div
-                                variants={{
-                                    initial: { scaleY: 0, opacity: 0 },
-                                    hover: { scaleY: 1, opacity: 1, filter: 'brightness(2)' },
+                                animate={{
+                                    scaleY: isHover ? 1 : 0,
+                                    opacity: isHover ? 1 : 0,
+                                    filter: isHover ? 'brightness(2)' : 'brightness(1)',
                                 }}
-                                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                transition={{ duration: 0.25, easing: 'ease-in-out' }}
                                 className="absolute inset-0 origin-bottom z-10 bg-gradient-to-t from-[#00636F] to-[#000809] pointer-events-none"
                                 style={{ transformOrigin: 'bottom' }}
                             />
