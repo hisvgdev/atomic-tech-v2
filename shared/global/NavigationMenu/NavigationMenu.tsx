@@ -52,7 +52,7 @@ export const NavigationMenu = () => {
 
         sections.forEach((section) => observer.observe(section))
         return () => sections.forEach((section) => observer.unobserve(section))
-    }, [])
+    }, [pathname])
 
     return (
         <>
@@ -100,32 +100,52 @@ export const NavigationMenu = () => {
                                         }
                                     }}
                                 >
-                                    <ul className="flex justify-between">
-                                        {NAV_MENU_LINKS.map((link, idx) => {
-                                            const activeLink = link.href === pathname
-                                            return (
-                                                <li key={`${idx}-${link.id}`} className="px-4 py-2">
-                                                    <Link
-                                                        href={link.href}
-                                                        className={cn(
-                                                            'font-bold px-4 py-2 rounded-full',
-                                                            {
-                                                                'bg-white text-black':
-                                                                    activeLink && isOnDark,
-                                                                'bg-black text-white':
-                                                                    activeLink && !isOnDark,
-                                                                'text-white':
-                                                                    !activeLink && isOnDark,
-                                                                'text-black':
-                                                                    !activeLink && !isOnDark,
-                                                            },
-                                                        )}
+                                    <ul className="relative flex justify-between px-4">
+                                        <AnimatePresence>
+                                            {NAV_MENU_LINKS.map((link, idx) => {
+                                                const activeLink = link.href === pathname
+
+                                                return (
+                                                    <li
+                                                        key={`${idx}-${link.id}`}
+                                                        className="relative px-4 py-2"
                                                     >
-                                                        {link.title}
-                                                    </Link>
-                                                </li>
-                                            )
-                                        })}
+                                                        {activeLink && (
+                                                            <motion.div
+                                                                layoutId="nav-active"
+                                                                className={cn(
+                                                                    'absolute inset-0 rounded-full z-0',
+                                                                    isOnDark
+                                                                        ? 'bg-white'
+                                                                        : 'bg-black',
+                                                                )}
+                                                                transition={{
+                                                                    type: 'spring',
+                                                                    stiffness: 450,
+                                                                    damping: 30,
+                                                                }}
+                                                            />
+                                                        )}
+                                                        <Link
+                                                            href={link.href}
+                                                            className={cn(
+                                                                'relative z-10 font-bold px-4 py-2 rounded-full transition-colors duration-300',
+                                                                {
+                                                                    'text-white':
+                                                                        (activeLink && !isOnDark) ||
+                                                                        (!activeLink && isOnDark),
+                                                                    'text-black':
+                                                                        (activeLink && isOnDark) ||
+                                                                        (!activeLink && !isOnDark),
+                                                                },
+                                                            )}
+                                                        >
+                                                            {link.title}
+                                                        </Link>
+                                                    </li>
+                                                )
+                                            })}
+                                        </AnimatePresence>
                                     </ul>
                                 </motion.nav>
                             )}

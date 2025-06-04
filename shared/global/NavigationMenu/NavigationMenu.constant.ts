@@ -7,7 +7,7 @@ export const NAV_MENU_LINKS = [
   {
     id: 'case',
     title: "Кейсы",
-    href: '/case',
+    href: '/cases',
   },
   {
     id: 'services',
