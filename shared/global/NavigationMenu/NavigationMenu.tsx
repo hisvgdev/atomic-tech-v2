@@ -54,6 +54,10 @@ export const NavigationMenu = () => {
         return () => sections.forEach((section) => observer.unobserve(section))
     }, [pathname])
 
+    useEffect(() => {
+        setIsOnDark(false)
+    }, [pathname])
+
     return (
         <>
             <div ref={triggerRef} className="h-8 w-full absolute top-0" />
@@ -76,14 +80,16 @@ export const NavigationMenu = () => {
                     }}
                 >
                     <div className="flex items-center justify-between">
-                        <Image
-                            src={logo}
-                            alt="logo"
-                            className={cn(
-                                'transition-all duration-500 w-32 h-auto',
-                                isOnDark ? 'brightness-200' : 'brightness-0',
-                            )}
-                        />
+                        <Link href="/">
+                            <Image
+                                src={logo}
+                                alt="logo"
+                                className={cn(
+                                    'transition-all duration-500 w-32 h-auto',
+                                    isOnDark ? 'brightness-200' : 'brightness-0',
+                                )}
+                            />
+                        </Link>
 
                         <AnimatePresence>
                             {menuClick && showMenuContent && (
@@ -152,20 +158,34 @@ export const NavigationMenu = () => {
                         </AnimatePresence>
 
                         <MotionButton
-                            className="rounded-full cursor-pointer flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#00636F] to-[#000809]"
+                            className="rounded-full relative cursor-pointer flex items-center justify-center overflow-hidden bg-black"
                             animate={{
-                                width: menuClick ? '3.5rem' : '10rem',
-                                padding: menuClick ? '1.25rem' : '0.75rem 1.25rem',
+                                width: menuClick ? '3.5rem' : 'auto',
                             }}
                             style={{
-                                height: '3.5rem',
+                                height: !menuClick ? '2.5rem' : '',
+                                padding: menuClick ? '1.75rem 0' : '',
                             }}
                             transition={{
                                 width: { duration: 0.15, ease: 'easeInOut' },
                                 padding: { duration: 0.2, ease: 'easeInOut' },
                             }}
                             onClick={handleMenuClick}
+                            initial="initial"
+                            whileHover="hover"
                         >
+                            {/* Градиент */}
+                            <motion.div
+                                variants={{
+                                    initial: { scaleY: 0, opacity: 0 },
+                                    hover: { scaleY: 1, opacity: 1, filter: 'brightness(2)' },
+                                }}
+                                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                className="absolute inset-0 origin-bottom z-10 bg-gradient-to-t from-[#00636F] to-[#000809] pointer-events-none"
+                                style={{ transformOrigin: 'bottom' }}
+                            />
+
+                            {/* Контент */}
                             {menuClick ? (
                                 <motion.div
                                     key="close"
@@ -173,19 +193,20 @@ export const NavigationMenu = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.5 }}
                                     transition={{ duration: 0.2 }}
+                                    className="z-20"
                                 >
-                                    <XIcon size={80} color="#C4C4C4" weight="bold" />
+                                    <XIcon size={24} color="#C4C4C4" weight="bold" />
                                 </motion.div>
                             ) : (
                                 <motion.div
                                     key="menu"
-                                    className="flex items-center gap-3 text-white"
+                                    className="flex items-center gap-3 z-20 text-white"
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -10 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <span className="font-bold text-xl">Меню</span>
+                                    <span className="font-bold text-base">Меню</span>
                                     <div className="flex flex-col gap-1 justify-center h-full">
                                         <div className="w-7 h-0.5 bg-white/50" />
                                         <div className="w-7 h-0.5 bg-white/50" />
