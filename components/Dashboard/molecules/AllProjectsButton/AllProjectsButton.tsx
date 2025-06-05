@@ -9,7 +9,7 @@ export const AllProjectsButton: FC<AllProjectsButtonProps> = (props) => {
     return (
         <Link
             href="#"
-            className="flex justify-center items-center gap-4 ring ring-black py-12 mx-4 rounded-2xl"
+            className="flex justify-center items-center gap-4 ring ring-black py-12 rounded-2xl"
         >
             <span className="text-5xl font-bold">Все проекты</span>
             <ArrowRightIcon size={48} weight="bold" className="mt-3" />
