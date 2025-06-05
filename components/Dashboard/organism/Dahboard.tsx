@@ -4,6 +4,7 @@ import AllProjectsButton from '../molecules/AllProjectsButton'
 import Benefits from '../molecules/Benefits'
 import Hero from '../molecules/Hero'
 import LastProjects from '../molecules/LastProjects'
+import Showreel from '../molecules/Showreel'
 
 export const Dashboard = () => {
     return (
@@ -13,6 +14,7 @@ export const Dashboard = () => {
                 <Benefits />
                 <LastProjects />
                 <AllProjectsButton />
+                <Showreel />
             </div>
         </div>
     )
