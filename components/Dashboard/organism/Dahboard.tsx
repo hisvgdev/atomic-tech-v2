@@ -1,6 +1,7 @@
 import React from 'react'
 
 import AllProjectsButton from '../molecules/AllProjectsButton'
+import Amenities from '../molecules/Amenities'
 import Benefits from '../molecules/Benefits'
 import CustomSolutions from '../molecules/CustomSolutions'
 import Hero from '../molecules/Hero'
@@ -11,12 +12,13 @@ export const Dashboard = () => {
     return (
         <div className="w-full h-full">
             <Hero />
-            <div className="flex flex-col gap-16 px-7">
+            <div className="flex flex-col gap-16 px-7 h-full">
                 <Benefits />
                 <LastProjects />
                 <AllProjectsButton />
                 <Showreel />
                 <CustomSolutions />
+                <Amenities />
             </div>
         </div>
     )
