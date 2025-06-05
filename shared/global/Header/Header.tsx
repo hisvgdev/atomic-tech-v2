@@ -31,7 +31,7 @@ export const Header = () => {
     }
 
     useEffect(() => {
-        const sensitivity = 0.1 // 0.5 = середина экрана, 0.3 = ближе к верху, 0 = самый верх
+        const sensitivity = 0.1
 
         const handleScroll = () => {
             const sections = document.querySelectorAll('section[data-dark]')
