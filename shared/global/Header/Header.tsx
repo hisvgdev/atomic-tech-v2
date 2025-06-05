@@ -11,9 +11,9 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
-import { NAV_MENU_LINKS } from './NavigationMenu.constant'
+import { NAV_MENU_LINKS } from './Header.constant'
 
-export const NavigationMenu = () => {
+export const Header = () => {
     const [isOnDark, setIsOnDark] = useState(false)
     const [menuClick, setMenuClick] = useState(false)
     const [showMenuContent, setShowMenuContent] = useState(false)
@@ -61,7 +61,7 @@ export const NavigationMenu = () => {
         <>
             <div ref={triggerRef} className="h-8 w-full absolute top-0" />
 
-            <div className="w-full sticky top-0 z-20 flex justify-center items-center py-5">
+            <div className="w-full fixed top-0 z-20 flex justify-center items-center py-5">
                 <motion.div
                     className={cn(
                         'min-w-96 rounded-full backdrop-blur-lg p-3.5',

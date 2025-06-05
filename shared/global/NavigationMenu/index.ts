@@ -1,1 +1,0 @@
-export { NavigationMenu as default } from './NavigationMenu'
