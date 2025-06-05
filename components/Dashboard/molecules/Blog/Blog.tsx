@@ -30,7 +30,7 @@ const techMock = [
 export const Blog: FC<BlogProps> = (props) => {
     const {} = props
     return (
-        <div className="flex flex-col gap-y-12">
+        <section data-dark="false" className="flex flex-col gap-y-12">
             <div className="flex items-center gap-x-8">
                 <BlogCards />
                 <BlogHeading />
@@ -50,6 +50,6 @@ export const Blog: FC<BlogProps> = (props) => {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

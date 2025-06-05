@@ -8,9 +8,9 @@ export const CustomSolutions: FC<CustomSolutionsProps> = (props) => {
     const {} = props
 
     return (
-        <div className="flex flex-col gap-16">
+        <section data-dark="false" className="flex flex-col gap-16">
             <CustomSolutionsHeader />
             <CustomSolutionsFeedback />
-        </div>
+        </section>
     )
 }

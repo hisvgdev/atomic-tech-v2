@@ -31,26 +31,26 @@ export const Header = () => {
     }
 
     useEffect(() => {
-        const sections = document.querySelectorAll('section[data-dark]')
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleSections = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+        const sensitivity = 0.1 // 0.5 = середина экрана, 0.3 = ближе к верху, 0 = самый верх
 
-                if (visibleSections.length > 0) {
-                    const topSection = visibleSections[0]
-                    const isDark = topSection.target.getAttribute('data-dark') === 'true'
+        const handleScroll = () => {
+            const sections = document.querySelectorAll('section[data-dark]')
+            const triggerPoint = window.innerHeight * sensitivity
+
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect()
+                if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                    const isDark = section.getAttribute('data-dark') === 'true'
                     setIsOnDark(isDark)
+                    break
                 }
-            },
-            {
-                threshold: 0.8,
-            },
-        )
+            }
+        }
 
-        sections.forEach((section) => observer.observe(section))
-        return () => sections.forEach((section) => observer.unobserve(section))
+        window.addEventListener('scroll', handleScroll)
+        handleScroll()
+
+        return () => window.removeEventListener('scroll', handleScroll)
     }, [pathname])
 
     useEffect(() => {

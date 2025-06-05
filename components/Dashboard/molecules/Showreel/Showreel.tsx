@@ -4,8 +4,11 @@ import React from 'react'
 
 export const Showreel = () => {
     return (
-        <div className="w-full h-full bg-black py-32  rounded-2xl flex items-center justify-center">
+        <section
+            data-dark="true"
+            className="w-full h-full bg-black py-32  rounded-2xl flex items-center justify-center"
+        >
             <Image src={videoInDevelopmentIcon} alt="video-in-dev" />
-        </div>
+        </section>
     )
 }
