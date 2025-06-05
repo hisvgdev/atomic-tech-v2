@@ -3,6 +3,7 @@ import React from 'react'
 import AllProjectsButton from '../molecules/AllProjectsButton'
 import Amenities from '../molecules/Amenities'
 import Benefits from '../molecules/Benefits'
+import Blog from '../molecules/Blog'
 import CustomSolutions from '../molecules/CustomSolutions'
 import Hero from '../molecules/Hero'
 import LastProjects from '../molecules/LastProjects'
@@ -19,6 +20,7 @@ export const Dashboard = () => {
                 <Showreel />
                 <CustomSolutions />
                 <Amenities />
+                <Blog />
             </div>
         </div>
     )
