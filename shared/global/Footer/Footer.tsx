@@ -1,7 +1,12 @@
 'use client'
 
+import instagramIcon from '@/public/assets/images/icons/instagram.svg'
+import telegramIcon from '@/public/assets/images/icons/telegram.svg'
+import tgBotIcon from '@/public/assets/images/icons/tgBot.svg'
+import youtubeIcon from '@/public/assets/images/icons/youtube.svg'
 import { ArrowRightIcon, TelegramLogoIcon } from '@phosphor-icons/react'
 import { ChevronUp } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
@@ -11,21 +16,25 @@ const mockSocietyData = [
         id: uuidv4(),
         title: 'YouTube',
         href: '/youtube',
+        icon: youtubeIcon,
     },
     {
         id: uuidv4(),
         title: 'Telegram',
         href: '/tg',
+        icon: telegramIcon,
     },
     {
         id: uuidv4(),
         title: 'Telegram bot',
         href: '/tg-bot',
+        icon: tgBotIcon,
     },
     {
         id: uuidv4(),
         title: 'Instagram',
         href: '/instagram',
+        icon: instagramIcon,
     },
 ]
 
@@ -43,17 +52,23 @@ export const Footer = () => {
             <div className="mt-16 mb-6 mx-4 bg-black py-6 px-8 rounded-[3.125rem]">
                 <div className="w-full flex justify-between">
                     <div className="flex flex-col gap-y-20">
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                             {mockSocietyData.map((society, indx) => {
                                 return (
                                     <div
                                         key={`${indx}-${society.id}`}
-                                        className="flex items-center gap-x-2"
+                                        className="flex items-center"
                                     >
-                                        <div className="w-9 h-9 rounded-full bg-white" />
+                                        <Image
+                                            src={society.icon}
+                                            alt={society.title}
+                                            width={36}
+                                            height={36}
+                                            className="object-contain"
+                                        />
                                         <Link
                                             href={society.href}
-                                            className="text-white font-bold text-sm"
+                                            className="text-white font-bold text-sm pl-2"
                                         >
                                             {society.title}
                                         </Link>
