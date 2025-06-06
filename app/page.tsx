@@ -1,7 +1,5 @@
+import { Dashboard } from "@/components/Dashboard/organism/Dahboard";
+
 export default function Home() {
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  return <Dashboard />;
 }
