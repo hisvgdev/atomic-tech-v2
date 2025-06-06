@@ -1,7 +1,7 @@
 'use client'
 
 import logo from '@/public/assets/images/logo.svg'
-import { MotionButton } from '@/shared/custom/MotionButton'
+import { MotionButton } from '@/shared/custom/motion/MotionButton'
 import { XIcon } from '@phosphor-icons/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
