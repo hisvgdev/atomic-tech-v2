@@ -1,8 +1,8 @@
+import { mockProjects } from '@/constants/project.constants'
 import CaseCard from '@/shared/global/CaseCard'
 import Chip from '@/shared/global/Chip'
 import React, { FC } from 'react'
 
-import { mockProjects } from './LastProject.constants'
 import { LastProjectsProps } from './LastProjects.types'
 
 export const LastProjects: FC<LastProjectsProps> = (props) => {
