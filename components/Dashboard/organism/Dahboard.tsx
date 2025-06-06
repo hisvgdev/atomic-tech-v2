@@ -12,8 +12,8 @@ import Showreel from '../molecules/Showreel'
 export const Dashboard = () => {
     return (
         <div className="w-full h-full">
-            <Hero />
-            <div className="flex flex-col gap-16 px-7 h-full">
+            <div className="flex flex-col gap-16 px-7">
+                <Hero />
                 <Benefits />
                 <LastProjects />
                 <AllProjectsButton />

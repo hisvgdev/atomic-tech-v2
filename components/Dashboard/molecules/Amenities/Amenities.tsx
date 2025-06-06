@@ -63,7 +63,7 @@ export const Amenities: FC<AmenitiesProps> = () => {
     return (
         <section
             data-dark="true"
-            className="bg-gradient-to-r from-[#00636F] to-[#000809] w-full py-24 px-7"
+            className="bg-gradient-to-r from-[#00636F] to-[#000809] w-full py-24 px-7 rounded-[3.125rem]"
         >
             <div className="flex flex-col gap-20">
                 <div className="flex flex-col items-center gap-8 lg:justify-between xl:flex-row xl:gap-0">

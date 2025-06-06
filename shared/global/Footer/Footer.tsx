@@ -39,67 +39,69 @@ export const Footer = () => {
     }
 
     return (
-        <div className="mt-16 mb-6 mx-4 bg-black py-6 px-8 rounded-[3.125rem]">
-            <div className="w-full flex justify-between">
-                <div className="flex flex-col gap-y-20">
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                        {mockSocietyData.map((society, indx) => {
-                            return (
-                                <div
-                                    key={`${indx}-${society.id}`}
-                                    className="flex items-center gap-x-2"
-                                >
-                                    <div className="w-9 h-9 rounded-full bg-white" />
-                                    <Link
-                                        href={society.href}
-                                        className="text-white font-bold text-sm"
+        <div className="mt-auto">
+            <div className="mt-16 mb-6 mx-4 bg-black py-6 px-8 rounded-[3.125rem]">
+                <div className="w-full flex justify-between">
+                    <div className="flex flex-col gap-y-20">
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                            {mockSocietyData.map((society, indx) => {
+                                return (
+                                    <div
+                                        key={`${indx}-${society.id}`}
+                                        className="flex items-center gap-x-2"
                                     >
-                                        {society.title}
-                                    </Link>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="flex items-center gap-x-14">
-                        <span className="text-[#767676] font-normal text-xs">
-                            ИП Зурнаджян 237201792931
-                        </span>
-                        <span className="text-white font-normal text-xs">
-                            Политика конфиденциальности
-                        </span>
-                    </div>
-                </div>
-                <div className="flex flex-col gap-y-12 max-w-lg">
-                    <div className="flex items-center gap-x-24">
-                        <div className="flex flex-col gap-y-2">
-                            <div className="flex items-center gap-x-1.5">
-                                <TelegramLogoIcon size={22} color="#FFFFFF" weight="fill" />
-                                <h5 className="text-white font-bold text-lg">Telegram</h5>
-                            </div>
-                            <p className="font-bold text-lg text-white">Заполнить бриф</p>
+                                        <div className="w-9 h-9 rounded-full bg-white" />
+                                        <Link
+                                            href={society.href}
+                                            className="text-white font-bold text-sm"
+                                        >
+                                            {society.title}
+                                        </Link>
+                                    </div>
+                                )
+                            })}
                         </div>
-                        <button className="flex items-center gap-x-4 py-5 px-8 rounded-full ring ring-white">
-                            <span className="font-medium text-base text-white">
-                                Оставить заявку
+                        <div className="flex items-center gap-x-14">
+                            <span className="text-[#767676] font-normal text-xs">
+                                ИП Зурнаджян 237201792931
                             </span>
-                            <ArrowRightIcon size={22} color="#FFFFFF" />
-                        </button>
+                            <span className="text-white font-normal text-xs">
+                                Политика конфиденциальности
+                            </span>
+                        </div>
                     </div>
-                    <hr className="bg-white/70 w-full" />
-                    <div className="flex items-center justify-between">
-                        <span className="text-white text-xs font-normal max-w-80">
-                            * Социальные сети Instagram и Facebook запрещены в РФ. Решением суда от
-                            21.03.2022
-                        </span>
-                        <div className="flex items-center gap-x-2">
-                            <span className="text-white font-bold text-xs">Наверх</span>
-                            <button
-                                type="button"
-                                className="bg-white w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"
-                                onClick={scrollToTop}
-                            >
-                                <ChevronUp />
+                    <div className="flex flex-col gap-y-12 max-w-lg">
+                        <div className="flex items-center gap-x-24">
+                            <div className="flex flex-col gap-y-2">
+                                <div className="flex items-center gap-x-1.5">
+                                    <TelegramLogoIcon size={22} color="#FFFFFF" weight="fill" />
+                                    <h5 className="text-white font-bold text-lg">Telegram</h5>
+                                </div>
+                                <p className="font-bold text-lg text-white">Заполнить бриф</p>
+                            </div>
+                            <button className="flex items-center gap-x-4 py-5 px-8 rounded-full ring ring-white">
+                                <span className="font-medium text-base text-white">
+                                    Оставить заявку
+                                </span>
+                                <ArrowRightIcon size={22} color="#FFFFFF" />
                             </button>
+                        </div>
+                        <hr className="bg-white/70 w-full" />
+                        <div className="flex items-center justify-between">
+                            <span className="text-white text-xs font-normal max-w-80">
+                                * Социальные сети Instagram и Facebook запрещены в РФ. Решением суда
+                                от 21.03.2022
+                            </span>
+                            <div className="flex items-center gap-x-2">
+                                <span className="text-white font-bold text-xs">Наверх</span>
+                                <button
+                                    type="button"
+                                    className="bg-white w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"
+                                    onClick={scrollToTop}
+                                >
+                                    <ChevronUp />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
