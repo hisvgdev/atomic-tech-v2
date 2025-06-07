@@ -29,19 +29,26 @@ const mockMetrics = [
     },
 ]
 
+const gradientConfig: { [key: string]: string } = {
+    project: 'to bottom',
+    summary: 'to left',
+    client: 'to top',
+    experience: 'to bottom right',
+}
+
 export const BenefitsLeftSide: FC<BenefitsLeftSideProps> = () => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+    const [hoveredIndex, setHoveredIndex] = useState<number>(0)
 
     return (
         <div className="max-w-2xl grid grid-cols-2 gap-1.5">
             {mockMetrics.map((item, index) => {
                 const isHovered = hoveredIndex === index
-
+                const gradientAngle = gradientConfig[item.id] || 'to bottom'
                 return (
                     <div className="relative" key={`${index}-${item.id}`}>
                         <motion.div
                             onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(index)}
                             style={{
                                 transition: 'border-color 0.3s ease',
                                 backgroundColor: '#090F10',
@@ -58,8 +65,7 @@ export const BenefitsLeftSide: FC<BenefitsLeftSideProps> = () => {
                                 animate={{ opacity: isHovered ? 1 : 0 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
-                                    background:
-                                        'linear-gradient(to bottom right, #00636F, #000809)',
+                                    background: `linear-gradient(${gradientAngle}, #00636F, #000809)`,
                                 }}
                             />
                             <div className="flex flex-col items-start gap-2 relative z-20">

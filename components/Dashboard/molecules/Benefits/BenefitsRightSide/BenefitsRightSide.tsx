@@ -1,6 +1,6 @@
 'use client'
 
-import { MotionButton } from '@/shared/custom/MotionButton'
+import { MotionButton } from '@/shared/custom/motion/MotionButton'
 import { ArrowRightIcon } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import React, { FC, useState } from 'react'

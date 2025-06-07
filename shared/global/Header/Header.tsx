@@ -1,7 +1,7 @@
 'use client'
 
 import logo from '@/public/assets/images/logo.svg'
-import { MotionButton } from '@/shared/custom/MotionButton'
+import { MotionButton } from '@/shared/custom/motion/MotionButton'
 import { XIcon } from '@phosphor-icons/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -61,7 +61,7 @@ export const Header = () => {
         <>
             <div ref={triggerRef} className="h-8 w-full absolute top-0" />
 
-            <div className="w-full fixed top-0 z-20 flex justify-center items-center py-5">
+            <div className="w-full sticky top-0 z-50 flex justify-center items-center py-5">
                 <motion.div
                     className={cn(
                         'min-w-96 rounded-full backdrop-blur-lg p-3.5',
