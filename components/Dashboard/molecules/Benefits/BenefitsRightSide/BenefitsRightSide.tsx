@@ -25,7 +25,8 @@ export const BenefitsRightSide: FC<BenefitsRightSideProps> = (props) => {
                 className="relative w-full py-8 rounded-full flex items-center cursor-pointer overflow-hidden"
                 style={{
                     transition: 'border-color 0.3s ease',
-                    background: 'linear-gradient(to bottom left, #00636F, #000809)',
+                    background:
+                        'linear-gradient(4.32deg, #9FE4F3 0.31%, #3FBFD9 34.32%, #157CAB 68.34%, #114B71 102.36%, #051824 136.38%)',
                 }}
                 animate={{
                     boxShadow: isHover ? '0 0 0 1px #676767' : 'none',

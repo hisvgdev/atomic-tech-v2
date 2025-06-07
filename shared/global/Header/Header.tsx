@@ -157,13 +157,15 @@ export const Header = () => {
                         </AnimatePresence>
 
                         <MotionButton
-                            className="rounded-full relative cursor-pointer flex items-center justify-center overflow-hidden bg-black"
+                            className="rounded-full relative cursor-pointer flex items-center justify-center overflow-hidden"
                             animate={{
                                 width: menuClick ? '3.5rem' : 'auto',
                             }}
                             style={{
                                 height: !menuClick ? '2.5rem' : '',
                                 padding: menuClick ? '1.75rem 0' : '',
+                                background:
+                                    'linear-gradient(2.61deg, #9FE4F3 -265.88%, #3FBFD9 -199.4%, #157CAB -132.93%, #114B71 -66.45%, #051824 0.03%)',
                             }}
                             transition={{
                                 width: { duration: 0.15, ease: 'easeInOut' },
@@ -179,11 +181,14 @@ export const Header = () => {
                                 animate={{
                                     scaleY: isHover ? 1 : 0,
                                     opacity: isHover ? 1 : 0,
-                                    filter: isHover ? 'brightness(2)' : 'brightness(1)',
                                 }}
                                 transition={{ duration: 0.25, easing: 'ease-in-out' }}
-                                className="absolute inset-0 origin-bottom z-10 bg-gradient-to-t from-[#00636F] to-[#000809] pointer-events-none"
-                                style={{ transformOrigin: 'bottom' }}
+                                className="absolute inset-0 origin-bottom z-10 pointer-events-none"
+                                style={{
+                                    transformOrigin: 'bottom',
+                                    background:
+                                        'linear-gradient(360deg, #9FF3F3 9.76%, #3FD9D1 40.24%, #159AAB 70.73%, #116971 101.22%, #000E0F 131.71%)',
+                                }}
                             />
 
                             {/* Контент */}
