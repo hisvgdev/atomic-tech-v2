@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@phosphor-icons/react"],
   },
   reactStrictMode: true,
+  skipTrailingSlashRedirect: true,
+  trailingSlash: true
 };
 
 export default nextConfig;
