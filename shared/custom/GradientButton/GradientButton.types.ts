@@ -8,5 +8,6 @@ export interface GradientButtonProps {
   titleSize?: string;
   iconSize?: number;
   classNames?: HTMLProps<HTMLElement>["className"];
+  isWhite?: boolean;
   secondClassnames?: HTMLProps<HTMLElement>['className']
 }

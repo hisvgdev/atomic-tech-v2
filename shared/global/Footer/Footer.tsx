@@ -4,7 +4,7 @@ import instagramIcon from '@/public/assets/images/icons/instagram.svg'
 import telegramIcon from '@/public/assets/images/icons/telegram.svg'
 import tgBotIcon from '@/public/assets/images/icons/tgBot.svg'
 import youtubeIcon from '@/public/assets/images/icons/youtube.svg'
-import { ArrowRightIcon, TelegramLogoIcon } from '@phosphor-icons/react'
+import GradientButton from '@/shared/custom/GradientButton'
 import { ChevronUp } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -89,17 +89,21 @@ export const Footer = () => {
                         <div className="flex items-center gap-x-24">
                             <div className="flex flex-col gap-y-2">
                                 <div className="flex items-center gap-x-1.5">
-                                    <TelegramLogoIcon size={22} color="#FFFFFF" weight="fill" />
+                                    <Image
+                                        src={telegramIcon}
+                                        color="#FFFFFF"
+                                        alt="tg-icon"
+                                        className="w-4 h-4"
+                                    />
                                     <h5 className="text-white font-bold text-lg">Telegram</h5>
                                 </div>
                                 <p className="font-bold text-lg text-white">Заполнить бриф</p>
                             </div>
-                            <button className="flex items-center gap-x-4 py-5 px-8 rounded-full ring ring-white">
-                                <span className="font-medium text-base text-white">
-                                    Оставить заявку
-                                </span>
-                                <ArrowRightIcon size={22} color="#FFFFFF" />
-                            </button>
+                            <GradientButton
+                                isWhite
+                                title="Оставить заявку"
+                                classNames="rounded-full py-8"
+                            />
                         </div>
                         <hr className="bg-white/70 w-full" />
                         <div className="flex items-center justify-between">

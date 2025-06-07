@@ -15,7 +15,7 @@ export const BlogHeading: FC<BlogHeadingProps> = (props) => {
                 hasIsRoute
                 routePath="/cases"
                 title="Перейти в блог"
-                classNames="py-8 rounded-full"
+                classNames="py-8 rounded-full text-white"
             />
         </div>
     )

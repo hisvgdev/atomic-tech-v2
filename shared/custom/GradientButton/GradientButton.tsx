@@ -20,6 +20,7 @@ export const GradientButton: FC<GradientButtonProps> = (props) => {
         classNames,
         secondClassnames,
         iconSize = 24,
+        isWhite,
     } = props
     const [isHover, setIsHover] = useState(false)
     const router = useRouter()
@@ -35,7 +36,7 @@ export const GradientButton: FC<GradientButtonProps> = (props) => {
             style={{
                 transition: 'border-color 0.3s ease',
                 boxShadow: !isHover ? '0 0 0 1px #676767' : '',
-                backgroundColor: 'white',
+                backgroundColor: 'transparent',
             }}
             animate={{
                 gap: isHover ? '2rem' : '1.5rem',
@@ -67,7 +68,7 @@ export const GradientButton: FC<GradientButtonProps> = (props) => {
                     <span
                         className={cn(`relative font-medium ${titleSize}`, {
                             'text-black': !isHover,
-                            'text-white': isHover,
+                            'text-white': isHover || isWhite,
                         })}
                         style={{ zIndex: 10 }}
                     >
@@ -75,7 +76,7 @@ export const GradientButton: FC<GradientButtonProps> = (props) => {
                     </span>
                     <ArrowRightIcon
                         size={iconSize}
-                        color={isHover ? 'white' : 'black'}
+                        color={isHover || isWhite ? 'white' : 'black'}
                         className="relative z-10"
                     />
                 </div>
