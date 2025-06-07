@@ -2,15 +2,14 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import React, { forwardRef } from 'react'
-import { createPortal } from 'react-dom'
 
 import { categoryFilter, serviceFilter, technologyFilter } from './CaseFilter.constants'
 import { CaseFilterProps } from './CaseFilter.types'
 
 export const CaseFilter = forwardRef<HTMLDivElement, CaseFilterProps>((props, ref) => {
     const { isFilterOpen } = props
-    return createPortal(
-        <div className="absolute top-50 right-7 z-20" ref={ref}>
+    return (
+        <div className="absolute top-0 right-1 z-20" ref={ref}>
             <AnimatePresence>
                 {isFilterOpen && (
                     <motion.div
@@ -19,9 +18,9 @@ export const CaseFilter = forwardRef<HTMLDivElement, CaseFilterProps>((props, re
                             backdropFilter: 'blur(20px)',
                             backgroundColor: 'rgba(255, 255, 255, 0.7)',
                         }}
-                        initial={{ opacity: 0, y: 220 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -220 }}
+                        exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
                     >
                         <div className="flex flex-col gap-y-8">
@@ -41,8 +40,7 @@ export const CaseFilter = forwardRef<HTMLDivElement, CaseFilterProps>((props, re
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>,
-        document.body,
+        </div>
     )
 })
 

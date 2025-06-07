@@ -31,6 +31,8 @@ export const Header = () => {
     }
 
     useEffect(() => {
+        if (typeof window === 'undefined' || typeof document === 'undefined') return
+
         const sensitivity = 0.1
 
         const handleScroll = () => {
