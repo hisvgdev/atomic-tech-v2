@@ -80,9 +80,12 @@ export const Footer = () => {
                             <span className="text-[#767676] font-normal text-xs">
                                 ИП Зурнаджян 237201792931
                             </span>
-                            <span className="text-white font-normal text-xs">
+                            <Link
+                                href="/policy"
+                                className="text-white font-normal text-xs underline"
+                            >
                                 Политика конфиденциальности
-                            </span>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-12 max-w-lg">
@@ -97,7 +100,9 @@ export const Footer = () => {
                                     />
                                     <h5 className="text-white font-bold text-lg">Telegram</h5>
                                 </div>
-                                <p className="font-bold text-lg text-white">Заполнить бриф</p>
+                                <p className="font-bold text-lg text-white underline">
+                                    Заполнить бриф
+                                </p>
                             </div>
                             <GradientButton
                                 isWhite

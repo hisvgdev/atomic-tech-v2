@@ -57,6 +57,7 @@ export const Header = () => {
 
     useEffect(() => {
         setIsOnDark(false)
+        setMenuClick(false)
     }, [pathname])
 
     return (
