@@ -1,5 +1,6 @@
 import AllProjectsButton from '@/components/Dashboard/molecules/AllProjectsButton'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { mockProjects } from '@/constants/project.constants'
 import dbIcon from '@/public/assets/images/icons/database.svg'
 import pythonIcon from '@/public/assets/images/icons/python.svg'
@@ -161,23 +162,27 @@ export default async function Case({ params }: CaseProps) {
                             </button>
 
                             {[1, 2].map((_, i) => (
-                                <article
+                                <Card
                                     key={i}
-                                    className="h-96 bg-[#1D1D1D] p-5 rounded-4xl flex flex-col"
+                                    className="border-none shadow-none h-96 bg-[#1D1D1D] rounded-4xl flex flex-col justify-between"
                                 >
-                                    <div className="flex flex-col gap-y-5">
-                                        <div className="bg-black w-full rounded-2xl h-48" />
+                                    <CardHeader>
+                                        <CardTitle>
+                                            <div className="bg-black w-full rounded-2xl h-48" />
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
                                         <h4 className="font-semibold text-white">
                                             Wordpress — это быстро? Но что если мы расскажем вам о
                                             новых.
                                         </h4>
-                                    </div>
-                                    <div className="mt-auto">
+                                    </CardContent>
+                                    <CardFooter>
                                         <time className="text-gray-300 font-light text-sm leading-6">
                                             2025-06-08
                                         </time>
-                                    </div>
-                                </article>
+                                    </CardFooter>
+                                </Card>
                             ))}
                         </aside>
                     </div>
