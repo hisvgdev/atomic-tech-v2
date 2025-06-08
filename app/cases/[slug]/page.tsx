@@ -39,12 +39,12 @@ export default async function Case({ params }: CaseProps) {
                         </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                        <Button className="border border-black h-10 rounded-full bg-transparent cursor-pointer text-black hover:bg-transparent">
+                        <Button className="border border-black py-4 rounded-full bg-transparent cursor-pointer text-black hover:bg-transparent">
                             <Globe size={22} />
                             <span className="font-medium text-base">innovatica.ru</span>
                             <ArrowRight />
                         </Button>
-                        <Button className="border border-black h-10 rounded-full bg-transparent cursor-pointer text-black hover:bg-transparent">
+                        <Button className="border border-black py-4 rounded-full bg-transparent cursor-pointer text-black hover:bg-transparent">
                             <Calendar size={22} />
                             <span className="font-medium text-base">2025 год</span>
                         </Button>
