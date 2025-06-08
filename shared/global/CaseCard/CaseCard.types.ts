@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export interface CaseCardProps {
+  id: string;
   title: string;
   description: string;
   coverImage: StaticImageData;

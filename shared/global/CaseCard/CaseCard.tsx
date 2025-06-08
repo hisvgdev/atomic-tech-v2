@@ -6,7 +6,7 @@ import React, { FC } from 'react'
 import { CaseCardProps } from './CaseCard.types'
 
 export const CaseCard: FC<CaseCardProps> = (props) => {
-    const { badgeContent, coverImage, description, tags, title } = props
+    const { badgeContent, coverImage, id, description, tags, title } = props
     return (
         <div className="w-full h-full">
             <div className="flex flex-col gap-3 w-full h-full">
@@ -52,7 +52,7 @@ export const CaseCard: FC<CaseCardProps> = (props) => {
                         </div>
                         <GradientButton
                             hasIsRoute
-                            routePath="#"
+                            routePath={`/cases/${id}`}
                             title="Сайт"
                             classNames="py-6 rounded-full"
                         />
