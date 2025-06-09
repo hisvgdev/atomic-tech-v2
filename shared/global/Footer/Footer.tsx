@@ -1,9 +1,9 @@
 'use client'
 
-import instagramIcon from '@/public/assets/images/icons/instagram.svg'
-import telegramIcon from '@/public/assets/images/icons/telegram.svg'
-import tgBotIcon from '@/public/assets/images/icons/tgBot.svg'
-import youtubeIcon from '@/public/assets/images/icons/youtube.svg'
+import instagramIcon from '@/public/assets/icons/instagram.svg'
+import telegramIcon from '@/public/assets/icons/telegram.svg'
+import tgBotIcon from '@/public/assets/icons/tgBot.svg'
+import youtubeIcon from '@/public/assets/icons/youtube.svg'
 import GradientButton from '@/shared/custom/GradientButton'
 import { ChevronUp } from 'lucide-react'
 import Image from 'next/image'

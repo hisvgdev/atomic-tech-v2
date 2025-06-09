@@ -1,4 +1,4 @@
-import videoInDevelopmentIcon from '@/public/assets/images/icons/videoInDevelopment.svg'
+import videoInDevelopmentIcon from '@/public/assets/icons/videoInDevelopment.svg'
 import Image from 'next/image'
 import React from 'react'
 

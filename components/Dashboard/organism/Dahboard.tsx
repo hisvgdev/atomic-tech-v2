@@ -7,6 +7,7 @@ import Blog from '../molecules/Blog'
 import CustomSolutions from '../molecules/CustomSolutions'
 import Hero from '../molecules/Hero'
 import LastProjects from '../molecules/LastProjects'
+import LeaveRequest from '../molecules/LeaveRequest'
 import Showreel from '../molecules/Showreel'
 
 export const Dashboard = () => {
@@ -21,6 +22,7 @@ export const Dashboard = () => {
                 <CustomSolutions />
                 <Amenities />
                 <Blog />
+                <LeaveRequest />
             </div>
         </div>
     )

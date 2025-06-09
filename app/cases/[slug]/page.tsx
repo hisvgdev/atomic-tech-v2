@@ -2,9 +2,9 @@ import AllProjectsButton from '@/components/Dashboard/molecules/AllProjectsButto
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { mockProjects } from '@/constants/project.constants'
-import dbIcon from '@/public/assets/images/icons/database.svg'
-import pythonIcon from '@/public/assets/images/icons/python.svg'
-import reactIcon from '@/public/assets/images/icons/react.svg'
+import dbIcon from '@/public/assets/icons/database.svg'
+import pythonIcon from '@/public/assets/icons/python.svg'
+import reactIcon from '@/public/assets/icons/react.svg'
 import CaseCard from '@/shared/global/CaseCard'
 import { BookOpenIcon, RobotIcon, StarIcon } from '@phosphor-icons/react/dist/ssr'
 import {
