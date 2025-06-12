@@ -1,16 +1,16 @@
+import ArticleCards from '@/components/dashboard/molecules/ArticleCards'
 import { technologies } from '@/constants/tech.constants'
 import Image from 'next/image'
 import React, { FC } from 'react'
 
 import { BlogProps } from './Blog.types'
-import BlogCards from './BlogCards'
 import BlogHeading from './BlogHeading'
 
 export const Blog: FC<BlogProps> = () => {
     return (
         <section data-dark="false" className="flex flex-col gap-y-12">
             <div className="flex items-center gap-x-8">
-                <BlogCards />
+                <ArticleCards />
                 <BlogHeading />
             </div>
             <hr className="w-5xl bg-red-900" />

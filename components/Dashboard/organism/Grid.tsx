@@ -10,7 +10,7 @@ import LastProjects from '../molecules/LastProjects'
 import LeaveRequest from '../molecules/LeaveRequest'
 import Showreel from '../molecules/Showreel'
 
-export const Dashboard = () => {
+export const Grid = () => {
     return (
         <div className="w-full h-full">
             <div className="flex flex-col gap-16">

@@ -4,8 +4,8 @@ import secondBlog from '@/public/assets/images/blog/secondBlog.png'
 import { FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import { BlogCard } from './BlogCard/BlogCard'
-import { BlogCardsProps } from './BlogCards.types'
+import ArticleCard from '../../../../shared/global/ArticleCard'
+import { ArticleCardsProps } from './ArticleCards.types'
 
 const mockDataCards = [
     {
@@ -28,12 +28,12 @@ const mockDataCards = [
     },
 ]
 
-export const BlogCards: FC<BlogCardsProps> = (props) => {
+export const ArticleCards: FC<ArticleCardsProps> = (props) => {
     const {} = props
     return (
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
             {mockDataCards.map((blog, indx) => (
-                <BlogCard key={`${indx}-${blog.title}`} {...blog} />
+                <ArticleCard key={`${indx}-${blog.title}`} {...blog} variant="xs" />
             ))}
         </div>
     )

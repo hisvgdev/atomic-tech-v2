@@ -1,5 +1,5 @@
-import { Dashboard } from "@/components/Dashboard/organism/Dahboard";
+import { Grid } from '@/components/dashboard/organism/Grid'
 
 export default function Home() {
-  return <Dashboard />;
+    return <Grid />
 }

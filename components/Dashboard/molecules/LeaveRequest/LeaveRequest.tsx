@@ -10,10 +10,7 @@ export const LeaveRequest: FC<LeaveRequestProps> = (props) => {
     return (
         <section
             data-dark="true"
-            className="w-full px-24 py-14 rounded-[3.125rem]"
-            style={{
-                background: 'linear-gradient(104.62deg, #00636F 0%, #000809 47.79%)',
-            }}
+            className="w-full px-24 py-14 rounded-[3.125rem] bg-gradient-main"
         >
             <div className="flex flex-col gap-y-4">
                 <div className="flex flex-col gap-y-3 max-w-xl">
