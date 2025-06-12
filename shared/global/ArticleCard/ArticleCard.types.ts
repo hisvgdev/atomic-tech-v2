@@ -13,7 +13,8 @@ export interface ArticleCardProps {
   classNames?: string
 
   // Behavior & features
-  withTag?: boolean
+  tag?: string
+  withTag?: boolean;
   hasRating?: boolean
   rating?: number
   ratingPosition?: RatingPosition

@@ -33,7 +33,7 @@ export const ArticleCards: FC<ArticleCardsProps> = (props) => {
     return (
         <div className="flex flex-wrap items-center gap-4">
             {mockDataCards.map((blog, indx) => (
-                <ArticleCard key={`${indx}-${blog.title}`} {...blog} variant="xs" />
+                <ArticleCard key={`${indx}-${blog.title}`} {...blog} classNames="max-w-xs" />
             ))}
         </div>
     )

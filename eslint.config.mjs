@@ -15,6 +15,7 @@ const eslintConfig = [
         rules: {
             '@typescript-eslint/no-empty-object-type': 'off',
             '@typescript-eslint/ban-ts-comment': 'warn',
+            'react/no-children-prop': 'off',
         },
     },
 ]

@@ -1,5 +1,5 @@
-import Banner from '@/components/articles/molecules/Banner'
-import { Tags } from '@/components/articles/molecules/Tags/Tags'
+import Banner from '@/components/journal/molecules/Banner'
+import { Tags } from '@/components/journal/molecules/Tags/Tags'
 import React from 'react'
 
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {

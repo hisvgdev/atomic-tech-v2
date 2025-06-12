@@ -1,12 +1,32 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useForm } from '@tanstack/react-form'
 import React, { FC } from 'react'
+
+import { LeaveRequestPayload, leaveRequestSchema } from '@/lib/schema/leave-request-schema'
 
 import { LeaveRequestProps } from './LeaveRequest.types'
 
 export const LeaveRequest: FC<LeaveRequestProps> = (props) => {
     const {} = props
+    const form = useForm({
+        validators: {
+            onChange: leaveRequestSchema,
+        },
+        defaultValues: {
+            email: '',
+            phone: '',
+            nickname: '',
+            terms: true,
+        } as LeaveRequestPayload,
+        onSubmit: (data) => {
+            console.log(data.value)
+        },
+    })
     return (
         <section
             data-dark="true"
@@ -21,26 +41,79 @@ export const LeaveRequest: FC<LeaveRequestProps> = (props) => {
                         Оставьте заявку и мы свяжемся с вами в ближайший час
                     </p>
                 </div>
-                <form>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        form.handleSubmit()
+                    }}
+                >
                     <div className="flex flex-col gap-y-4 max-w-6xl">
                         <div className="flex items-center gap-x-2.5">
-                            <input
-                                type="email"
+                            <form.Field
                                 name="email"
-                                placeholder="example@mail.com"
-                                className="rounded-full border border-[#FFFFFF99] py-4 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                children={({ state, handleBlur, handleChange }) => (
+                                    <div className="flex flex-col gap-y-1 w-full">
+                                        <Input
+                                            aria-invalid={!!state.meta.errors[0]?.message}
+                                            value={state.value}
+                                            type="email"
+                                            name="email"
+                                            placeholder="example@mail.com"
+                                            onChange={(e) => handleChange(e.target.value)}
+                                            onBlur={handleBlur}
+                                            className="rounded-full border border-[#FFFFFF99] py-7 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                        />
+                                        {state.meta.errors.length > 0 && (
+                                            <p className="text-red-500 text-xs">
+                                                {state.meta.errors[0]?.message}
+                                            </p>
+                                        )}
+                                    </div>
+                                )}
                             />
-                            <input
-                                type="phone"
+                            <form.Field
                                 name="phone"
-                                placeholder="+7 (123) 456-78-90"
-                                className="rounded-full border border-[#FFFFFF99] py-4 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                children={({ state, handleBlur, handleChange }) => (
+                                    <div className="flex flex-col gap-y-1 w-full">
+                                        <Input
+                                            aria-invalid={!!state.meta.errors[0]?.message}
+                                            value={state.value}
+                                            type="phone"
+                                            name="phone"
+                                            placeholder="+7 (123) 456-78-90"
+                                            onChange={(e) => handleChange(e.target.value)}
+                                            onBlur={handleBlur}
+                                            className="rounded-full border border-[#FFFFFF99] py-7 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                        />
+                                        {state.meta.errors.length > 0 && (
+                                            <p className="text-red-500 text-xs">
+                                                {state.meta.errors[0]?.message}
+                                            </p>
+                                        )}
+                                    </div>
+                                )}
                             />
-                            <input
-                                type="text"
+                            <form.Field
                                 name="nickname"
-                                placeholder="Ник телеграм (если есть)"
-                                className="rounded-full border border-[#FFFFFF99] py-4 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                children={({ state, handleBlur, handleChange }) => (
+                                    <div className="flex flex-col gap-y-1 w-full">
+                                        <Input
+                                            aria-invalid={!!state.meta.errors[0]?.message}
+                                            value={state.value}
+                                            type="text"
+                                            name="nickname"
+                                            placeholder="Ник телеграм (если есть)"
+                                            onChange={(e) => handleChange(e.target.value)}
+                                            onBlur={handleBlur}
+                                            className="rounded-full border border-[#FFFFFF99] py-7 px-5 text-white w-full placeholder:text-white/50 outline-none"
+                                        />
+                                        {state.meta.errors.length > 0 && (
+                                            <p className="text-red-500 text-xs">
+                                                {state.meta.errors[0]?.message}
+                                            </p>
+                                        )}
+                                    </div>
+                                )}
                             />
                         </div>
                         <Button
@@ -49,12 +122,32 @@ export const LeaveRequest: FC<LeaveRequestProps> = (props) => {
                         >
                             Оставить заявку
                         </Button>
-                        <div className="flex items-center gap-x-3">
-                            <Checkbox id="terms" />
-                            <Label htmlFor="terms" className="text-white/50 max-w-xs">
-                                Нажимая кнопку, вы даете согласие на обработку персональных данных
-                            </Label>
-                        </div>
+                        <form.Field
+                            name="terms"
+                            children={({ state, handleChange }) => (
+                                <div className="flex items-start gap-x-3">
+                                    <Checkbox
+                                        id="terms"
+                                        checked={state.value}
+                                        onCheckedChange={(checked) => handleChange(!!checked)}
+                                    />
+                                    <div className="flex flex-col">
+                                        <Label
+                                            htmlFor="terms"
+                                            className="text-white/50 max-w-xs cursor-pointer"
+                                        >
+                                            Нажимая кнопку, вы даете согласие на обработку
+                                            персональных данных
+                                        </Label>
+                                        {state.meta.errors.length > 0 && (
+                                            <p className="text-red-500 text-xs">
+                                                {state.meta.errors[0]?.message}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        />
                     </div>
                 </form>
             </div>

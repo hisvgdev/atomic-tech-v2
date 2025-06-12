@@ -39,13 +39,20 @@ export const Header = () => {
             const sections = document.querySelectorAll('section[data-dark]')
             const triggerPoint = window.innerHeight * sensitivity
 
+            let foundDark = false
+
             for (const section of sections) {
                 const rect = section.getBoundingClientRect()
                 if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
                     const isDark = section.getAttribute('data-dark') === 'true'
                     setIsOnDark(isDark)
+                    foundDark = true
                     break
                 }
+            }
+
+            if (!foundDark) {
+                setIsOnDark(false)
             }
         }
 

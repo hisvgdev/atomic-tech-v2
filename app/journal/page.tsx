@@ -1,4 +1,4 @@
-import { Grid } from '@/components/articles/organism/Grid'
+import { Grid } from '@/components/journal/organism/Grid'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
