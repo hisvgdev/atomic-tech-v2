@@ -1,4 +1,4 @@
-import { Grid } from '@/components/journal/organism/Grid'
+import { Grid } from '@/components/articles/organism/Grid'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     },
     category: 'Статьи',
 }
-
 export default function Articles() {
     return <Grid />
 }
