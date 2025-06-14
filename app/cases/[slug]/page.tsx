@@ -1,5 +1,5 @@
 import CaseHistory from '@/components/cases/molecules/CaseHistory'
-import AllProjectsButton from '@/components/dashboard/molecules/AllProjectsButton'
+import { AllProjectsButton } from '@/components/dashboard/molecules/AllProjectsButton/AllProjectsButton'
 import { Button } from '@/components/ui/button'
 import { mockProjects } from '@/constants/project.constants'
 import dbIcon from '@/public/assets/icons/tech/database.svg'

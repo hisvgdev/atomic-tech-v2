@@ -1,4 +1,4 @@
-import AllProjectsButton from '@/components/dashboard/molecules/AllProjectsButton'
+import { AllProjectsButton } from '@/components/dashboard/molecules/AllProjectsButton/AllProjectsButton'
 
 import BusinessSection from '../molecules/BusinessSection'
 import DesignSection from '../molecules/DesignSection'
