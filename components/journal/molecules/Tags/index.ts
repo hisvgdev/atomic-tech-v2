@@ -1,0 +1,1 @@
+export type { TagsProps } from './Tags.types';
